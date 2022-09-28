@@ -45,42 +45,6 @@
     margin-bottom: 5px;
     font-weight: bold;
   }
-
-  .tip__amount__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tip__btn {
-    width: 30%;
-    border: none;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 5px;
-    text-align: center;
-    background: #00474b;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-
-    &:hover {
-      background: #9fe8df;
-      color: #00474b;
-      border: none;
-      cursor: pointer;
-    }
-  }
-}
-
-.tip__select {
-  padding: 16px 8px;
-  border-radius: 5px;
-  background: #f3f8fb;
-  border: 1px solid #709697;
-  width: 100px;
-  margin: 5px;
-  font-weight: bold;
-  font-size: 20px;
 }
 
 .icons {

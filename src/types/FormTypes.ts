@@ -1,8 +1,8 @@
 export interface FormTypes {
-    billAmt: number;
+    billAmount: number;
     numOfPeople:number
     errorOfNumbers: boolean
-    handleBillAmtInput: (event: any) => void
+    handleBillAmountInput: (event: any) => void
     handleSelectedTip: (event: any) => void
     handleSelectedTipButton: (number:number) => void
     setNumbersOfPeople: (event: any) => void

@@ -6,16 +6,16 @@ import { Results } from './components/Results/Results';
 import './App.scss';
 
 export const App = () => {
-  const [billAmt, setBillAmt] = useState<number>(0);
+  const [billAmount, setBillAmount] = useState<number>(0);
   const [numOfPeople, setNumOfPeople] = useState<number>(1);
   const [selectedTip, setSelectedTip] = useState<number>(0);
   const [calculatedTip, setCalculatedTip] = useState<number>(0);
   const [calculatedTotal, setCalculatedTotal] = useState<number>(0);
   const [errorOfNumbers, setErrorOfNumbers] = useState<boolean>(false);
-  const [activeTip, setActiveTip] = useState()
+  const [activeTip, setActiveTip] = useState();
 
-  const handleBillAmtInput = (e: any) => {
-    setBillAmt(e.target.value);
+  const handleBillAmountInput = (e: any) => {
+    setBillAmount(e.target.value);
   };
 
   const handleSelectedTip = (e: any) => {
@@ -30,26 +30,25 @@ export const App = () => {
     if (e.target.value > 0) {
       setNumOfPeople(e.target.value);
       setErrorOfNumbers(false);
-    }
-    if (e.target.value == 0) {
+    } else {
       setErrorOfNumbers(true);
-      setNumOfPeople(0);
+      setNumOfPeople(1);
     }
   };
 
   const calcTip = () => {
-    numOfPeople && setCalculatedTip((Number(billAmt) * (selectedTip / 100)) / numOfPeople);
+    numOfPeople && setCalculatedTip((Number(billAmount) * (selectedTip / 100)) / numOfPeople);
   };
 
   const calcTotal = () => {
     numOfPeople &&
       setCalculatedTotal(
-        Number(billAmt / numOfPeople) + (Number(billAmt) * (selectedTip / 100)) / numOfPeople,
+        Number(billAmount / numOfPeople) + (Number(billAmount) * (selectedTip / 100)) / numOfPeople,
       );
   };
 
   const reset = () => {
-    setBillAmt(0);
+    setBillAmount(0);
     setNumOfPeople(1);
     setSelectedTip(0);
     setCalculatedTip(0);
@@ -60,16 +59,16 @@ export const App = () => {
   useEffect(() => {
     calcTip();
     calcTotal();
-  }, [billAmt, numOfPeople, selectedTip]);
+  }, [billAmount, numOfPeople, selectedTip]);
 
   return (
     <div className="app">
       <div className="calculator">
         <Form
-          handleBillAmtInput={handleBillAmtInput}
+          handleBillAmountInput={handleBillAmountInput}
           handleSelectedTip={handleSelectedTip}
           handleSelectedTipButton={handleSelectedTipButton}
-          billAmt={billAmt}
+          billAmount={billAmount}
           setNumbersOfPeople={setNumbersOfPeople}
           numOfPeople={numOfPeople}
           errorOfNumbers={errorOfNumbers}

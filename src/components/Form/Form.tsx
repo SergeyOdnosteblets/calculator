@@ -4,11 +4,12 @@ import { FormTypes } from '../../types/FormTypes';
 import style from './Form.module.scss';
 import imgDollar from '../../images/icon-dollar.svg';
 import imgPerson from '../../images/icon-person.svg';
+import { Tips } from '../Tips/Tips';
 
 export const Form: React.FC<FormTypes> = ({
-  handleBillAmtInput,
+  handleBillAmountInput,
   handleSelectedTip,
-  billAmt,
+  billAmount,
   handleSelectedTipButton,
   setNumbersOfPeople,
   numOfPeople,
@@ -21,34 +22,18 @@ export const Form: React.FC<FormTypes> = ({
         <input
           type="number"
           id="bill"
-          onInput={handleBillAmtInput}
-          value={billAmt}
+          onInput={handleBillAmountInput}
+          value={billAmount}
           className={style.input__error}
         />
         <img src={imgDollar} alt="" className={style.icons} />
       </div>
       <div className={style.select__tip}>
         <label className={style.label}>Selected Tip %</label>
-        <div className={style.tip__amount__wrapper}>
-          <button className={style.tip__btn} onClick={() => handleSelectedTipButton(5)}>
-            5%
-          </button>
-          <button className={style.tip__btn} onClick={() => handleSelectedTipButton(10)}>
-            10%
-          </button>
-          <button className={style.tip__btn} onClick={() => handleSelectedTipButton(15)}>
-            15%
-          </button>
-          <button className={style.tip__btn} onClick={() => handleSelectedTipButton(25)}>
-            25%
-          </button>
-          <button className={style.tip__btn} onClick={() => handleSelectedTipButton(50)}>
-            50%
-          </button>
-          <div className={style.tip__amount}>
-            <input type="number" className={style.tip__select} onInput={handleSelectedTip} />
-          </div>
-        </div>
+        <Tips
+          handleSelectedTipButton={handleSelectedTipButton}
+          handleSelectedTip={handleSelectedTip}
+        />
       </div>
       <div className={style.label__group}>
         <div>
